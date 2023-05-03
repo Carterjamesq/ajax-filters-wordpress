@@ -1,7 +1,7 @@
 <?php get_header(); /* Template Name: Ajax Filter */
 ?>
 
-<!-- Ajax Filters Content -->
+<!-- Ajax Filter Content -->
 <div class="container py-4 posts-list">
   <div class="ajax-title border-bottom mb-3">
     <?php the_title( '<h1>', '</h1>' ); ?>
@@ -41,7 +41,7 @@
             echo '<option value="' . $date_string . '">' . date('Y', strtotime($date_string . '-01')) . '</option>';
           }
           ?>
-  </select>
+        </select>
       </div>
     </div>
     <div class="col-lg">
@@ -61,13 +61,12 @@
             <h2><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?><?php the_title(); ?></a></h2>
             <div class="entry-content">
             <?php 
-if ( has_excerpt() ) {
-    echo get_the_excerpt();
-} else {
-    echo wp_trim_words( get_the_content(), 20 );
-}
-?>
-
+              if ( has_excerpt() ) {
+                  echo get_the_excerpt();
+              } else {
+                  echo wp_trim_words( get_the_content(), 20 );
+              }
+              ?>
             </div>
             <div class="post-categories"><?php the_category(', '); ?></div>
           </div>
